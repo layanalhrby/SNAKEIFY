@@ -140,7 +140,7 @@ docker-compose up --build
 
 ## 👨‍💻 Created By
 
-[Your Name/Handle]
+https://github.com/Mr-Dark-debug/SNAKEIFY
 
 ## 📄 License
 
