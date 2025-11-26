@@ -7,7 +7,12 @@
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com/)
 
-![Demo Gameplay](./assets/demo.gif)
+<img width="1918" height="930" alt="image" src="https://github.com/user-attachments/assets/9899be9b-4cb0-4fc4-92dd-a9b5517a0973" />
+<img width="1334" height="923" alt="image" src="https://github.com/user-attachments/assets/84ddcace-047d-4100-a56a-84feb262e2ca" />
+<img width="761" height="603" alt="image" src="https://github.com/user-attachments/assets/f442cf38-7c43-4b29-84f4-816dcd76d69c" />
+<img width="1919" height="927" alt="image" src="https://github.com/user-attachments/assets/566831e0-a2a5-4e8c-a533-24adc19be414" />
+
+
 
 ## 🎮 Gameplay
 
