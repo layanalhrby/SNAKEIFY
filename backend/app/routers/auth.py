@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 @router.get("/login")
 def login():
-    scope = "user-read-private user-read-email user-library-read"
+    scope = "user-read-private user-read-email user-library-read streaming user-read-playback-state user-modify-playback-state"
     auth_url = (
         f"https://accounts.spotify.com/authorize?response_type=code"
         f"&client_id={settings.SPOTIFY_CLIENT_ID}"

@@ -12,13 +12,11 @@ const GameBoard = () => {
     const {
         gameState, isPaused, snakeBody, food, direction, score, currentTrack, nextTrack, songs,
         setGameState, setSnakeBody, setFood, setDirection, incrementScore,
-        setCurrentTrack, setNextTrack, resetGame, user, eatenSongs, addEatenSong, setBgColor
+        setCurrentTrack, setNextTrack, resetGame, user, eatenSongs, addEatenSong, setBgColor,
+        deviceId, accessToken, isPlayerReady, player
     } = useGameStore();
 
-    const [audio, setAudio] = useState(new Audio());
-    const [nextAudio, setNextAudio] = useState(new Audio());
-
-    // Initialize Audio & Game
+    // Initialize Game
     useEffect(() => {
         if (songs.length > 0 && !currentTrack) {
             const firstTrack = songs[0];
@@ -26,29 +24,19 @@ const GameBoard = () => {
 
             setCurrentTrack(firstTrack);
             setNextTrack(secondTrack);
-
-            if (firstTrack.preview_url) {
-                const firstAudio = new Audio(firstTrack.preview_url);
-                firstAudio.loop = true;
-                setAudio(firstAudio);
-            }
-
-            if (secondTrack.preview_url) {
-                const secondAudio = new Audio(secondTrack.preview_url);
-                secondAudio.preload = 'auto';
-                setNextAudio(secondAudio);
-            }
         }
     }, [songs]);
 
-    // Handle Pause/Resume Audio
+    // Handle Pause/Resume
     useEffect(() => {
+        if (!player) return;
+
         if (isPaused) {
-            audio.pause();
-        } else if (gameState === 'PLAYING' && currentTrack && currentTrack.preview_url) {
-            audio.play().catch(e => console.log("Audio play prevented", e));
+            player.pause();
+        } else if (gameState === 'PLAYING') {
+            player.resume();
         }
-    }, [isPaused, gameState, currentTrack]);
+    }, [isPaused, gameState, player]);
 
     // Extract Color from Album Art
     useEffect(() => {
@@ -93,22 +81,43 @@ const GameBoard = () => {
         setFood(newFood);
     };
 
-    // Initial Spawn
+    // Initial Spawn & Play
     useEffect(() => {
         if (gameState === 'PLAYING' && songs.length > 0 && !food) {
             spawnFood(currentTrack);
+            // Play first song
+            if (currentTrack && deviceId) {
+                playSpotifyTrack(currentTrack.uri);
+            }
         }
-    }, [gameState, songs, currentTrack]);
+    }, [gameState, songs, currentTrack, deviceId]);
+
+    const playSpotifyTrack = async (uri) => {
+        if (!deviceId || !accessToken) return;
+
+        console.log("Playing track on Spotify:", uri);
+        try {
+            await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
+                method: 'PUT',
+                body: JSON.stringify({ uris: [uri] }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+            });
+        } catch (e) {
+            console.error("Failed to play track:", e);
+        }
+    };
 
     const playNextSong = () => {
-        if (!nextTrack) return;
+        if (!nextTrack) {
+            console.warn("playNextSong called but no nextTrack");
+            return;
+        }
 
-        audio.pause();
-
-        const newAudio = nextAudio;
-        newAudio.loop = true;
-        newAudio.play().catch(e => console.error("Audio play failed", e));
-        setAudio(newAudio);
+        console.log("Playing next song:", nextTrack.name);
+        playSpotifyTrack(nextTrack.uri);
 
         const newCurrentTrack = nextTrack;
         setCurrentTrack(newCurrentTrack);
@@ -123,21 +132,15 @@ const GameBoard = () => {
             upcomingTrack = songs[upcomingIndex];
         }
 
+        console.log("Setting upcoming track:", upcomingTrack.name);
         setNextTrack(upcomingTrack);
-        if (upcomingTrack.preview_url) {
-            const upcomingAudio = new Audio(upcomingTrack.preview_url);
-            upcomingAudio.preload = 'auto';
-            setNextAudio(upcomingAudio);
-        } else {
-            setNextAudio(new Audio());
-        }
 
         return newCurrentTrack;
     };
 
     const gameOver = () => {
         setGameState('GAME_OVER');
-        audio.pause();
+        if (player) player.pause();
 
         if (user && user.id) {
             // Format eaten songs for backend
@@ -379,6 +382,21 @@ const GameBoard = () => {
                             PLAY AGAIN <RefreshCw className="w-5 h-5" />
                         </button>
                     </div>
+                </div>
+            )}
+
+            {/* Spotify Embed Fallback for Free Users */}
+            {!isPlayerReady && currentTrack && (
+                <div className="absolute bottom-4 right-4 z-40 w-80 h-20 pointer-events-auto">
+                    <iframe
+                        src={`https://open.spotify.com/embed/track/${currentTrack.id}?utm_source=generator&theme=0`}
+                        width="100%"
+                        height="80"
+                        frameBorder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                        className="rounded-xl shadow-xl border-2 border-black"
+                    ></iframe>
                 </div>
             )}
         </div>

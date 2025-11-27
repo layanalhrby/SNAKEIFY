@@ -21,11 +21,11 @@ export const fetchLikedSongs = async (token) => {
             .map(item => item.track)
             .filter(track => {
                 if (!track) return false;
-                if (!track.preview_url) console.warn("Track has no preview (will play silent):", track.name);
-                return true; // Allow all tracks
+                // Allow all tracks, even without preview
+                return true;
             });
 
-        console.log("Valid songs with preview:", validSongs.length);
+        console.log("Valid songs:", validSongs.length);
 
         songs = [...songs, ...validSongs];
         url = data.next;

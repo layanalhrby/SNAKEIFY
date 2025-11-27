@@ -18,6 +18,11 @@ export const useGameStore = create((set) => ({
     eatenSongs: [], // History of eaten songs
     bgColor: '#FF90E8', // Default background color
 
+    // Spotify Player State
+    player: null,
+    deviceId: null,
+    isPlayerReady: false,
+
     setGameState: (state) => set({ gameState: state }),
     setIsPaused: (paused) => set({ isPaused: paused }),
     togglePause: () => set((state) => ({ isPaused: !state.isPaused })),
@@ -33,6 +38,9 @@ export const useGameStore = create((set) => ({
     setAccessToken: (token) => set({ accessToken: token }),
     addEatenSong: (song) => set((state) => ({ eatenSongs: [...state.eatenSongs, song] })),
     setBgColor: (color) => set({ bgColor: color }),
+    setPlayer: (player) => set({ player }),
+    setDeviceId: (deviceId) => set({ deviceId }),
+    setIsPlayerReady: (isReady) => set({ isPlayerReady: isReady }),
     resetGame: () => set({
         gameState: 'IDLE',
         score: 0,

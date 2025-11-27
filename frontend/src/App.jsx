@@ -35,6 +35,50 @@ function App() {
     }
   }, []);
 
+  // Initialize Spotify Player
+  useEffect(() => {
+    if (!accessToken) return;
+
+    const script = document.createElement("script");
+    script.src = "https://sdk.scdn.co/spotify-player.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    window.onSpotifyWebPlaybackSDKReady = () => {
+      const player = new window.Spotify.Player({
+        name: 'Snakeify Web Player',
+        getOAuthToken: cb => { cb(accessToken); },
+        volume: 0.5
+      });
+
+      player.addListener('ready', ({ device_id }) => {
+        console.log('Ready with Device ID', device_id);
+        useGameStore.getState().setDeviceId(device_id);
+        useGameStore.getState().setIsPlayerReady(true);
+        useGameStore.getState().setPlayer(player);
+      });
+
+      player.addListener('not_ready', ({ device_id }) => {
+        console.log('Device ID has gone offline', device_id);
+        useGameStore.getState().setIsPlayerReady(false);
+      });
+
+      player.addListener('initialization_error', ({ message }) => {
+        console.error("Initialization Error:", message);
+      });
+
+      player.addListener('authentication_error', ({ message }) => {
+        console.error("Authentication Error:", message);
+      });
+
+      player.addListener('account_error', ({ message }) => {
+        console.error("Account Error:", message);
+      });
+
+      player.connect();
+    };
+  }, [accessToken]);
+
   const handleLogin = () => {
     window.location.href = `${import.meta.env.VITE_API_URL}/login`;
   };
@@ -197,7 +241,7 @@ function App() {
                   }}
                   className="neo-button p-4 bg-[#FF5252] hover:bg-red-600 border-4 border-black shadow-[4px_4px_0px_0px_black]"
                 >
-                  <LogOut className="w-6 h-6 text-white stroke-[3]" />
+                  <LogOut className="w-6 h-6 text-black stroke-[3]" />
                 </button>
               </div>
             </div>
