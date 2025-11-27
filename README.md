@@ -3,9 +3,9 @@
 > The classic Snake game, but you eat your Spotify Liked Songs.
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+<img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/eeb7fa1c-85d4-4072-ba43-5d3a3af37c06" />
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com/)
 
 <img width="1918" height="930" alt="image" src="https://github.com/user-attachments/assets/9899be9b-4cb0-4fc4-92dd-a9b5517a0973" />
 <img width="1334" height="923" alt="image" src="https://github.com/user-attachments/assets/84ddcace-047d-4100-a56a-84feb262e2ca" />
